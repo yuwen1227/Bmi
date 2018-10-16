@@ -9,7 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-//快捷鍵:CTRL+ALT+F       CTRL+P(提醒)        AIT+SHIFT(移動換行)       Extract Method(CTRL+ALT+M)
+//快捷鍵:CTRL+ALT+F       CTRL+P(提醒)        AIT+SHIFT(移動換行)
+// CTRL+ALT+M(Extract Method)   CTRL+Y(刪除一行)    ALT+ENTER(String Resourse)
 
 public class MainActivity extends AppCompatActivity {
     EditText edWeight;
@@ -32,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d("MainActivity","OnClick:help");
                 new AlertDialog.Builder(MainActivity.this)
-                        .setMessage("Help")
-                        .setPositiveButton("OK",null)
+                        .setMessage(R.string.bmi_information)
+                        .setPositiveButton(R.string.ok,null)
                         .show();
             }
         });
@@ -48,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
         float height = Float.parseFloat(h);
         float bmi = weight/(height*height);
         Log.d("MainActivity","bmi"+" ");
-        Toast.makeText(this,"Your BMI is "+bmi,Toast.LENGTH_LONG).show();
+        Toast.makeText(this,getString(R.string.your_bmi_is)+bmi,Toast.LENGTH_LONG).show();
         new AlertDialog.Builder(this)  //跑出對話框
-                .setMessage("Your BMI is"+ bmi)
-                .setTitle("BMI")
+                .setMessage(getString(R.string.your_bmi_is)+ bmi)
+                .setTitle(R.string.bmi)
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() { //按下OK後執行的方法
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

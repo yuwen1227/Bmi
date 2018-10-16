@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="44dp"
         android:layout_marginStart="16dp"
-        android:text="Weight"
+        android:text="@string/weight"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="16dp" />
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="43dp"
         android:layout_marginTop="20dp"
-        android:text="Height"
+        android:text="@string/height"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintStart_toStartOf="@+id/ed_weight"
         app:layout_constraintTop_toBottomOf="@+id/ed_weight" />
@@ -32,7 +32,7 @@
         android:layout_height="68dp"
         android:layout_marginTop="24dp"
         android:onClick="bmi"
-        android:text="Calculate Bmi"
+        android:text="@string/calculate_bmi"
         android:textAppearance="@android:style/TextAppearance.Material.WindowTitle"
         app:layout_constraintStart_toStartOf="@+id/ed_height"
         app:layout_constraintTop_toBottomOf="@+id/ed_height" />
@@ -64,8 +64,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:onClick="help"
-        android:text="Help"
+        android:text="@string/help"
         android:textAppearance="@android:style/TextAppearance.Material.WindowTitle"
         app:layout_constraintStart_toStartOf="@+id/bmi"
-        app:layout_constraintTop_toBottomOf="@+id/bmi" />
+        app:layout_constraintTop_toBottomOf="@+id/bmi"
+        tools:ignore="NewApi,OnClick" />
 </android.support.constraint.ConstraintLayout>
