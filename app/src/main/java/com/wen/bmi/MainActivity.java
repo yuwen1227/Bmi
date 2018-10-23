@@ -1,6 +1,7 @@
 package com.wen.bmi;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViews();
+
     }
 
     private void findViews() {
@@ -31,26 +33,29 @@ public class MainActivity extends AppCompatActivity {
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("MainActivity","OnClick:help");
+                Log.d("MainActivity", "OnClick:help");
                 new AlertDialog.Builder(MainActivity.this)
                         .setMessage(R.string.bmi_information)
-                        .setPositiveButton(R.string.ok,null)
+                        .setPositiveButton(R.string.ok, null)
                         .show();
             }
         });
     }
 
-    public void bmi (View view){
-        Log.d("MainActivity","bmi");
+    public void bmi(View view) {
+        Log.d("MainActivity", "bmi");
         String w = edWeight.getText().toString();
         String h = edHeight.getText().toString();
-        Log.d("MainActivity",w + "/" + h);
+        Log.d("MainActivity", w + "/" + h);
         float weight = Float.parseFloat(w);
         float height = Float.parseFloat(h);
-        float bmi = weight/(height*height);
-        Log.d("MainActivity","bmi"+" ");
-        Toast.makeText(this,getString(R.string.your_bmi_is)+bmi,Toast.LENGTH_LONG).show();
-        new AlertDialog.Builder(this)  //跑出對話框
+        float bmi = weight / (height * height);
+        Log.d("MainActivity", "bmi" + " ");
+        Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra("result", bmi);
+        startActivity(intent);
+        /*Toast.makeText(this,getString(R.string.your_bmi_is)+bmi,Toast.LENGTH_LONG).show();
+                 new AlertDialog.Builder(this)  //跑出對話框
                 .setMessage(getString(R.string.your_bmi_is)+ bmi)
                 .setTitle(R.string.bmi)
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() { //按下OK後執行的方法
@@ -61,5 +66,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 })
                 .show();
+                */
     }
 }
