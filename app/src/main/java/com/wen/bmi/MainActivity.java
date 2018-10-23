@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-//快捷鍵:CTRL+ALT+F       CTRL+P(提醒)        AIT+SHIFT(移動換行)
+//快捷鍵:
+// CTRL+ALT+F       CTRL+P(提醒)        AIT+SHIFT(移動換行)
 // CTRL+ALT+M(Extract Method)   CTRL+Y(刪除一行)    ALT+ENTER(String Resourse)
+//CTRL+O(Override)       CTRL+R(複製此行)
 
 public class MainActivity extends AppCompatActivity {
     EditText edWeight;
@@ -23,7 +25,44 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViews();
+        Log.d("MainActivity","onCreate");
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("MainActivity","onStart");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("MainActivity","onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("MainActivity","onDestroy");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("MainActivity","onPause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("MainActivity","onResume");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("MainActivity","onRestart");
     }
 
     private void findViews() {
